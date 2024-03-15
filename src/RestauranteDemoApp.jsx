@@ -1,6 +1,13 @@
+import { Hero } from "./components/Hero"
+import { NavBar } from "./components/NavBar"
+import { Nosotros } from "./components/Nosotros"
 
 export const RestauranteDemoApp = () => {
     return (
-        <div>RestauranteDemoApp</div>
+        <>
+            <NavBar />
+            <Hero />
+            <Nosotros />
+        </>
     )
 }
