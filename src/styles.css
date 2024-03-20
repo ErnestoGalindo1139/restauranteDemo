@@ -20,7 +20,7 @@
 
 .mySwiper .swiper-button-prev, 
 .mySwiper .swiper-button-next {
-    color: blue; /* Cambia el color del botón de navegación */
+    color: white; /* Cambia el color del botón de navegación */
     font-weight: bold;
 }
 
