@@ -10,43 +10,55 @@ import { useEffect, useState } from 'react';
 const sucursales = [
     {
         id: 1,
-        direccion: "Calle Ficticia 123, Ciudad Ficticia, Estado Ficticio, Código Postal 12345",
-        horarioAtencion: "Lunes a Viernes: 9:00 am - 6:00 pm, Sábado: 9:00 am - 2:00 pm",
+        nombre: "Sucursal A",
+        direccion: "Calle Ficticia 123, Código Postal 123",
+        horarioAtencionLV: "Lunes a Viernes: 9:00 am - 6:00 pm",
+        horarioAtencionS: "Sábado: 9:00 am - 2:00 pm",
         telefono: "+123 456 7890",
         imagen: './sucursales/sucursal1.jpg',
     },
     {
         id: 2,
-        direccion: "Avenida Imaginaria 456, Pueblo Fantástico, Provincia de los Sueños, Código Postal 54321",
-        horarioAtencion: "Lunes a Jueves: 8:30 am - 5:30 pm, Viernes: 8:30 am - 4:00 pm",
+        nombre: "Sucursal B",
+        direccion: "Calle Ficticia 123, Código Postal 456",
+        horarioAtencionLV: "Lunes a Viernes: 8:30 am - 5:30 pm",
+        horarioAtencionS: "Sábado: 9:00 am - 2:00 pm",
         telefono: "+987 654 3210",
         imagen: './sucursales/sucursal2.jpg',
     },
     {
         id: 3,
-        direccion: "Plaza de las Maravillas, Barrio Mágico, Ciudad Encantada, Código Postal 67890",
-        horarioAtencion: "Lunes a Domingo: 10:00 am - 8:00 pm",
+        nombre: "Sucursal C",
+        direccion: "Calle Ficticia 123, Código Postal 789",
+        horarioAtencionLV: "Lunes a Viernes: 10:00 am - 8:00 pm",
+        horarioAtencionS: "Sábado: 9:00 am - 2:00 pm",
         telefono: "+456 789 0123",
         imagen: './sucursales/sucursal3.jpg',
     },
     {
         id: 4,
-        direccion: "Calle de la Ilusión 789, Villa Soñada, Provincia de los Deseos, Código Postal 13579",
-        horarioAtencion: "Lunes a Sábado: 9:30 am - 7:00 pm, Domingo: Cerrado",
+        nombre: "Sucursal D",
+        direccion: "Calle Ficticia 123, Código Postal 101",
+        horarioAtencionLV: "Lunes a Viernes: 9:30 am - 7:00 pm",
+        horarioAtencionS: "Sábado: 9:00 am - 2:00 pm",
         telefono: "+321 654 0987",
         imagen: './sucursales/sucursal4.jpg',
     },
     {
         id: 5,
-        direccion: "Avenida de los Recuerdos 246, Pueblo Nostálgico, Estado de la Memoria, Código Postal 97531",
-        horarioAtencion: "Lunes a Viernes: 8:00 am - 4:00 pm",
+        nombre: "Sucursal E",
+        direccion: "Calle Ficticia 123, Código Postal 265",
+        horarioAtencionLV: "Lunes a Viernes: 8:00 am - 4:00 pm",
+        horarioAtencionS: "Sábado: 9:00 am - 2:00 pm",
         telefono: "+789 012 3456",
         imagen: './sucursales/sucursal5.jpg',
     },
     {
         id: 6,
-        direccion: "Plaza de la Esperanza, Barrio Esperanzador, Ciudad Esperanza, Código Postal 24680",
-        horarioAtencion: "Lunes a Domingo: 24 horas",
+        nombre: "Sucursal F",
+        direccion: "Calle Ficticia 123, Código Postal 761",
+        horarioAtencionLV: "Lunes a Domingo: 24 horas",
+        horarioAtencionS: "Sábado: 9:00 am - 2:00 pm",
         telefono: "+654 321 9870",
         imagen: './sucursales/sucursal6.jpg',
     }
@@ -56,26 +68,6 @@ const sucursales = [
 export const Sucursales = () => {
 
     const [slidesPerView, setSlidesPerView] = useState(1);
-    
-    const [mostrarInformacion, setMostrarInformacion] = useState(Array(sucursales.length).fill(false));
-    const [timeoutId, setTimeoutId] = useState(null);
-
-    const handleMouseEnter = (index) => {
-        clearTimeout(timeoutId); // Limpiar cualquier timeout pendiente
-        const newMostrarInformacion = [...mostrarInformacion];
-        newMostrarInformacion[index] = true;
-        setMostrarInformacion(newMostrarInformacion);
-    };
-
-    const handleMouseLeave = (index) => {
-        // Agregar un pequeño retraso antes de cambiar el estado
-        const id = setTimeout(() => {
-        const newMostrarInformacion = [...mostrarInformacion];
-        newMostrarInformacion[index] = false;
-        setMostrarInformacion(newMostrarInformacion);
-        }, 1); // Ajusta el tiempo de espera según sea necesario
-        setTimeoutId(id); // Guardar el ID del timeout para poder limpiarlo si es necesario
-    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -119,34 +111,26 @@ export const Sucursales = () => {
                 >
                     {
                         sucursales.map((sucursal, index) => (
-                            <SwiperSlide key={index} className='' >
-                                <div 
-                                    className='relative h-full w-full'
-                                    onMouseEnter={() => handleMouseEnter(index)}
-                                    onMouseLeave={() => handleMouseLeave(index)}
-                                >
-                                    <img 
-                                        className='hover:opacity-[0.92]'
-                                        src={sucursal.imagen} 
-                                        alt={sucursal.alt}
+                            
+                            <SwiperSlide key={index} className='rounded-3xl'>
+                                <div className="relative h-full">
+                                    <img
+                                        className="rounded-2xl object-cover absolute w-full h-full opacity-100 transition-opacity duration-300 object-left-top"
+                                        src={sucursal.imagen}
+                                        alt=""
                                     />
-                                    {mostrarInformacion[index] && (
-                                        <div className='absolute p-[2rem] top-0 w-full h-[90%] sm:h-[80%] md:h-[70%]  lg:h-4/5 grid grid-cols-1 '>
-                                            <p className='text-2xl font-bold text-white text-start  '>
-                                                Direccion: { sucursal.direccion }
-                                            </p>
-                                            <p className='text-2xl font-bold text-white text-start  '>
-                                                Horario de atención: { sucursal.horarioAtencion }
-                                            </p>
-                                            <p className='text-2xl font-bold text-white text-start  '>
-                                                Número de teléfono: { sucursal.telefono }
-                                            </p>
-                                            <button className='text-2xl font-bold text-white w-[50%] bg-blue-400'>
-                                                Ver Más...
-                                            </button>
-
-                                        </div>
-                                    )}
+                                    <div className="rounded-2xl absolute px-4 w-full h-full bg-[#00000067] opacity-0 hover:opacity-100 transition-opacity duration-300 text-white font-bold text-4xl text-start">
+                                        <h1 className="absolute top-[2.5rem] border p-1">{sucursal.nombre}</h1>
+                                        <p className="absolute top-[10.5rem] text-white text-[1rem] md:text-[1.1rem] lg:text-[1.2rem] mr-[3rem]">{sucursal.direccion}</p>
+                                        <p className="absolute top-[12.5rem] text-white text-[1rem] md:text-[1.1rem] lg:text-[1.2rem] mr-[3rem]">{sucursal.horarioAtencionLV}</p>
+                                        <p className="absolute top-[14.5rem] text-white text-[1rem] md:text-[1.1rem] lg:text-[1.2rem] mr-[3rem]">{sucursal.horarioAtencionS}</p>
+                                        <p className="absolute top-[16.5rem] text-white text-[1rem] md:text-[1.1rem] lg:text-[1.2rem] mr-[3rem]">{sucursal.telefono}</p>
+                                        <button
+                                            className='absolute bottom-[3rem] right-[1.5rem] text-white text-[1rem] md:text-[1.1rem] lg:text-[1.2rem] bg-black py-1 px-3 hover:bg-gray-800'
+                                        >
+                                            Ver Más...
+                                        </button>
+                                    </div>
                                 </div>
                             </SwiperSlide>
                         ))
