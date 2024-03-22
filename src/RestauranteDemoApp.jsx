@@ -1,9 +1,9 @@
-import { HomePage } from "./pages/HomePage"
+import { AppRouter } from "./router/AppRouter"
 
 export const RestauranteDemoApp = () => {
     return (
         <>
-            <HomePage />
+            <AppRouter />
         </>
     )
 }
