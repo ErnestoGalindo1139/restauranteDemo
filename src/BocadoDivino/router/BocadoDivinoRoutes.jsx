@@ -11,7 +11,7 @@ export const BocadoDivinoRoutes = () => {
                 <Route path="inicio" element={<HomePage />} />
                 <Route path="menuCompleto" element={<MenuCompleto />} />
 
-                <Route path="platilloInfo" element={<PlatilloPage />} />
+                <Route path="platilloInfo/:id" element={<PlatilloPage />} />
 
                 <Route path="/*" element={<Navigate to="inicio"/>}/>
 

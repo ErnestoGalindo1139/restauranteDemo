@@ -50,3 +50,9 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+.separador {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 5rem;
+}
