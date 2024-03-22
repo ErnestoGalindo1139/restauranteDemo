@@ -3,7 +3,7 @@ export const Footer = () => {
     return (
         <>
         
-            <div className="color4 mt-[6rem] p-[1.6rem] flex justify-between items-center">
+            <div className="color1 mt-[6rem] p-[1.6rem] flex justify-between items-center">
                 {/* <p className="text-white text-[1.1rem]">© 2024 Bocado Divino. Todos los derechos reservados.</p> */}
                 <img
                     className="h-[80px] w-auto cursor-pointer"
