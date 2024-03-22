@@ -54,7 +54,7 @@ export const NavBar = () => {
                                 <img
                                     className="h-[64px] w-auto ml-1"
                                     src="./Logos/BocadoDivinoLogo.png"
-                                    alt="Logo GRS Technologies"
+                                    alt="BocadoDivinoLogo.png"
                                 />
                             </div>
                         </a>
