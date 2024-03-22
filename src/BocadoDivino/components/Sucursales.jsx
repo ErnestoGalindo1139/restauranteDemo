@@ -8,7 +8,6 @@ import 'swiper/css/navigation';
 import { useEffect, useState } from 'react';
 import { sucursales } from '../data/sucursales';
 
-
 export const Sucursales = () => {
 
     const [slidesPerView, setSlidesPerView] = useState(1);
@@ -39,7 +38,7 @@ export const Sucursales = () => {
 
     return (
         <>
-            <div className='color4 pt-[2rem] pb-[4rem]'>
+            <div id='sucursales' className='color4 pt-[2rem] pb-[4rem]'>
 
                 <h1 className='text-[3rem] text-center font-bold text-white mb-[2rem]'>Sucursales</h1>
 

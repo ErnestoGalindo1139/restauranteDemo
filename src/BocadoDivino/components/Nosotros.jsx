@@ -1,8 +1,9 @@
 
 export const Nosotros = () => {
+
     return (
         <>
-            <div className="color2 ">
+            <div id="nosotros" className="color2 ">
                 <div className="mx-auto w-[90%] max-w-[120rem] py-[4rem]">
                     <div className="py-[2rem] grid  grid-cols-1 lg:grid-cols-2 items-center gap-[2rem]">
                         

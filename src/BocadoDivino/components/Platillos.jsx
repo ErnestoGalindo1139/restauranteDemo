@@ -2,10 +2,10 @@ import { Link } from "react-router-dom"
 import { platillos } from "../data/platillos"
 
 export const Platillos = () => {
-    
+
     return (
         <>
-            <div className="color2 py-[3rem] ">
+            <div id="menu" className="color2 py-[3rem] ">
                 <h2 className="text-white font-bold text-2xl lg:text-5xl text-center mb-[4rem]"> Conoce Nuestros Platillos </h2>
                 <Link to="/menuCompleto">
                     <p className="text-end text-white mr-[3rem] mb-[1rem] underline text-xl">Ver menu completo</p>
