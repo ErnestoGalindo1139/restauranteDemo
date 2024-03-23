@@ -51,7 +51,7 @@ export const allPlatillos = [
         titulo: "Arroz frito",
         Descripcion: "Arroz salteado con vegetales frescos y salsa de soja...",
         Precio: 14.99,
-        Categoria: "Arroces"
+        Categoria: "Arroz"
     },
     {
         id: 7,
